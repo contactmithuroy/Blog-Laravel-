@@ -18,6 +18,13 @@ class TagController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function index()
     {
         $tags = Tag::orderBy('created_at',"DESC")->paginate(20);
@@ -108,6 +115,8 @@ class TagController extends Controller
      * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
+
+    
     public function destroy(Tag $tag)
     {
         if($tag){

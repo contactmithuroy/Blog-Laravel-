@@ -6,6 +6,8 @@ use App\Http\Controllers\CategoryController;
 
 use App\Http\Controllers\TagController;
 
+use App\Http\Controllers\PostController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +16,7 @@ use App\Http\Controllers\TagController;
 
 Auth::routes();
 
-Route::get('/login', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 // Route::get('/',function(){
@@ -48,6 +50,7 @@ Route::group(['prefix'=> 'admin','middleware'=>['auth']],function(){
         return view('admin.dashboard.index');
     });
 
+
 });
 
 // Route::post('/admin/category',[CategoryController::class,'store'])->name('category.store');
@@ -58,9 +61,12 @@ Route::group(['prefix'=> 'admin','middleware'=>['auth']],function(){
 // Route::delete('/admin/category/{category}',[CategoryController::class,'destroy'])->name('category.destroy');
 // Route::get('/admin/category/{category}/edit',[CategoryController::class,'edit'])->name('category.edit');
 
+    
 Route::resource("admin/category",CategoryController::class);
 
 Route::resource('admin/tag',TagController::class);
+
+Route::resource('admin/post',PostController::class);
 
 
 

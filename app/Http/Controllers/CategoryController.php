@@ -15,6 +15,8 @@ class CategoryController extends Controller
     public function __construct(Request $request)
     {
         // $this->middleware($request); //Now we can call it like that
+        $this->middleware('auth');
+
     }
     /**
      * Display a listing of the resource.

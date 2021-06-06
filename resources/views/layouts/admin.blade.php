@@ -210,6 +210,15 @@
           </li>
 
           <li class="nav-item">
+            <a href="{{ route('post.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-tag"></i>
+              <p>
+                Post
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="{{ route('tag.index') }}" class="nav-link">
               <i class="nav-icon fas fa-tag"></i>
               <p>
@@ -277,5 +286,14 @@
     toastr.success("{{ Session::get('success') }}");
   @endif
 </script>
+
+<script src="{{ asset('admin')}}/js/bs-custom-file-input.js" ></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    bsCustomFileInput.init();
+  });
+</script>
+
+
 </body>
 </html>
