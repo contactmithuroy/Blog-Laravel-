@@ -36,7 +36,7 @@
                         <div class="card-body p-0">
                             <div class="card card-primary">
                                <div class="row">
-                                   <div class="col-12 col-lg-6 col-md-8 offset-lg-3 offset-md-2">
+                                    <div class="col-12 col-lg-8 col-md-8 offset-lg-2 offset-md-2">
                                         <!-- form start -->
                                         <form role="form" action="{{ route('post.store') }}"   method="post" enctype="multipart/form-data">
                                            @csrf
@@ -70,17 +70,21 @@
                                                       </div>
                                                     </div>
                                                 </div>
-                                                @foreach ($tags as $tag)
                                                 <div class="form-group">
-                                                    <div class="form-check">
-                                                      <input class="form-check-input" name="tags[]" value="{{ $tag->id }}" type="checkbox" id="tag{{ $tag->id }}" >
-                                                      <label class="form-check-label" for="tag{{ $tag->id }}">{{ $tag->name }}</label>
-                                                    </div>
-                                                  </div>
-                                                @endforeach
+                                                    <label for="">Select Tags</label>
+                                                    <div class=" d-flex flex-warp ">
+                                                        @foreach ($tags as $tag)
+                                                            <div class="form-check custom-checkbox" style="margin-right: 20px " >
+                                                            <input class="form-check-input" name="tags[]" value="{{ $tag->id }}" type="checkbox" id="tag{{ $tag->id }}" >
+                                                            <label class="form-check-label" for="tag{{ $tag->id }}">{{ $tag->name }}</label>
+                                                            </div>
+                                                        @endforeach
+                                                    </div>                                                   
+                                                </div>
+
                                                 <div class="form-group">
                                                     <label for="description">Description</label>
-                                                    <textarea name="description" id="description" rows="4" class="form-control" placeholder="Enter your description">
+                                                    <textarea name="description" id="summernote" rows="4" class="form-control" placeholder="Enter your description">
 
                                                         {{ old('description') }}
                                                     </textarea>
@@ -105,5 +109,20 @@
 
 @endsection
 
+@section('style')
+    <link rel="stylesheet" href="{{ asset('admin/css/summernote-bs4.css') }}">
+@endsection
 
+@section('script')
+    <script src="{{ asset('admin/js/summernote-bs4.js') }}"> </script>
+    
+    <script>
+    $('#summernote').summernote({ // discription id is requered same
+        placeholder: 'Write here something new...',
+        tabsize: 2,
+        height: 300
+    });
+    // if font have not show then change the font path. find(/font) replace(../font/)
+    </script>
+@endsection
 

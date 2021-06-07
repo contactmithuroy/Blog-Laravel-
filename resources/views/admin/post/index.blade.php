@@ -67,6 +67,8 @@
                                   </td>
                                   <td>{{ $posts->user->name }}</td>
                                   <td class="d-flex">
+                                    <a href="{{ route('post.show',[$posts->id]) }}" class="btn btn-success mr-1"> <i class="fas fa-eye"></i> </a>
+
                                     <a href="{{ route('post.edit', [$posts->id]) }}" class="btn btn-primary mr-1"> <i class="fas fa-edit"></i> </a>
                                    
                                     <form action="{{ route('post.destroy',[$posts->id]) }}" method="POST" class="mr-1">
@@ -76,7 +78,6 @@
                                     
                                     </form>
 
-                                    {{-- <a href="{{ route('post.show',[$posts->id]) }}" class="btn btn-success mr-1"> <i class="fas fa-eye"></i> </a> --}}
                                   </td>
                                 </tr>
                                 @endforeach
