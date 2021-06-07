@@ -230,11 +230,20 @@
             </a>
           </li>
 
-          <li class="nav-item btn-danger">
+          <li class="nav-item">
             <a href="{{ route('logout') }}" onclick="event.prevenDefault(); document.getElementById('logout-form').submit();"  class="nav-link">
               <i class="nav-icon fas fa-sign-out-alt"></i>
               <p>
                 Logout
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item btn-primary">
+            <a href="{{ route('website.home') }}" class="nav-link" target="blank">
+              <i class="nav-icon fas fa-globe-europe"></i>
+              <p>
+                Website
               </p>
             </a>
           </li>
