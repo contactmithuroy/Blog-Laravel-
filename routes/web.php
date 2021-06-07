@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
+
+use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\CategoryController;
 
 use App\Http\Controllers\TagController;
@@ -18,33 +20,14 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+// Front End Route
+Route::get('/',[FrontEndController::class,'home'])->name('website.home');
+Route::get('/about',[FrontEndController::class,'about'])->name('website.about');
+Route::get('/category',[FrontEndController::class,'category'])->name('website.category');
+Route::get('/contact',[FrontEndController::class,'contact'])->name('website.contact');
+Route::get('/post/{slug}',[FrontEndController::class,'post'])->name('website.post');
 
-// Route::get('/',function(){
-//     return view('layouts.website');
-// });
-
-Route::get('/',function(){
-    return view('website.home');
-})->name('website.home');
-
-Route::get('/contact',function(){
-    return view('website.contact');
-});
-
-Route::get('/about',function(){
-    return view('website.about');
-});
-
-// Route::get('/category',function(){
-//     return view('website.category');
-// });
-
-Route::get('/post',function(){
-    return view('website.post');
-});
-
-
-// Admin panel route
+// Admin panel Route
 Route::group(['prefix'=> 'admin','middleware'=>['auth']],function(){
     Route::get('/dashboard',function(){
         return view('admin.dashboard.index');
@@ -52,6 +35,13 @@ Route::group(['prefix'=> 'admin','middleware'=>['auth']],function(){
 
 
 });
+   
+Route::resource("admin/category",CategoryController::class);
+
+Route::resource('admin/tag',TagController::class);
+
+Route::resource('admin/post',PostController::class);
+
 
 // Route::post('/admin/category',[CategoryController::class,'store'])->name('category.store');
 // Route::get('/admin/category',[CategoryController::class,'index'])->name('category.index');
@@ -61,14 +51,7 @@ Route::group(['prefix'=> 'admin','middleware'=>['auth']],function(){
 // Route::delete('/admin/category/{category}',[CategoryController::class,'destroy'])->name('category.destroy');
 // Route::get('/admin/category/{category}/edit',[CategoryController::class,'edit'])->name('category.edit');
 
-    
-Route::resource("admin/category",CategoryController::class);
-
-Route::resource('admin/tag',TagController::class);
-
-Route::resource('admin/post',PostController::class);
-
-
+ 
 
 
 
