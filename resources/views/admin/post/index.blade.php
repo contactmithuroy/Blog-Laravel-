@@ -40,6 +40,7 @@
                                 <th>Image</th>
                                 <th>Title</th>
                                 <th>Category</th>
+                                <th>Tags</th>
                                 <th>Author</th>
                                 <th style="width: 40px">Action</th>
                               </tr>
@@ -56,11 +57,15 @@
                                       <img src="{{ asset($posts->image) }}" class="img-fluid">
                                     </div>
                                   </td>
-
+  
                                   <td>{{ $posts->title }}</td>
                                   <td>{{ $posts->category->name }}</td>
+                                  <td>
+                                    @foreach ($posts->tags as $tag)
+                                      <span class="badge badge-primary">{{ $tag->name }}</span>
+                                    @endforeach
+                                  </td>
                                   <td>{{ $posts->user->name }}</td>
-
                                   <td class="d-flex">
                                     <a href="{{ route('post.edit', [$posts->id]) }}" class="btn btn-primary mr-1"> <i class="fas fa-edit"></i> </a>
                                    

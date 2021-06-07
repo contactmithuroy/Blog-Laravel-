@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
@@ -27,6 +28,7 @@ class PostController extends Controller
 
     public function index()
     {
+        
         $posts = Post::orderBy('created_at','DESC')->paginate(20);
         return view('admin.post.index',compact('posts'));
     }
@@ -37,11 +39,13 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
+        
+        $tags = Tag::all();
         $categories = Category::all();
-        return view('admin.post.create',compact('categories'));
+        return view('admin.post.create',compact(['categories'],['tags']));
     }
-
+ 
     /**
      * Store a newly created resource in storage.
      *
@@ -56,7 +60,7 @@ class PostController extends Controller
             'description'=>'required',
             'category_id'=>'required'
         ]);
-
+       
         $post = Post::create([
             'title'=>$request->title,
             'slug'=>Str::slug($request->title,'-'),
@@ -66,7 +70,9 @@ class PostController extends Controller
             'user_id'=>auth()->user()->id,
             'published_at'=>Carbon::now(),
         ]);
-        
+        // attach
+        $post->tags()->attach($request->tags);
+
         if($request->has('image')){
             $image = $request->image;
             $imageNewName = Time().".".$image->getClientOriginalExtension();
@@ -99,8 +105,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $tags = Tag::all();
         $categories = Category::all();
-        return view('admin.post.edit',compact(['post','categories']));
+        return view('admin.post.edit',compact(['post','categories','tags']));
     }    
 
     /**
@@ -118,12 +125,13 @@ class PostController extends Controller
             'category_id'=>'required'
         ]);
 
-            $post->title = $request->title;
-            $post->slug = Str::slug($request->title,'-');
-            $post->description = $request->description;
-            $post->category_id = $request->category_id;
+        $post->title = $request->title;
+        $post->slug = Str::slug($request->title,'-');
+        $post->description = $request->description;
+        $post->category_id = $request->category_id;
 
-        
+        $post->tags()->sync($request->tags);
+
         if($request->hasFile('image')){
             $image = $request->image;
             $imageNewName = Time().".".$image->getClientOriginalExtension();

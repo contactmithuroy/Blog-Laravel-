@@ -29,7 +29,7 @@
                           
                           <div class=" d-flex justify-content-between align-item-center ">
                                 <h3 class="card-title">Create Post </h3>
-                                <a href="{{ route('post.create') }}" class="btn btn-primary"> Create Post</a>
+                                <a href="{{ route('post.index') }}" class="btn btn-primary"> Back To Post</a>
                           </div>
                         </div>
                         <!-- /.card-header -->
@@ -41,7 +41,7 @@
                                         <form role="form" action="{{ route('post.store') }}"   method="post" enctype="multipart/form-data">
                                            @csrf
                                             <div class="card-body">
-                                                
+                                                 
                                                @include('include.errors')  {{-- for error --}}
                                                 
                                                <div class="form-group">
@@ -70,7 +70,14 @@
                                                       </div>
                                                     </div>
                                                 </div>
-
+                                                @foreach ($tags as $tag)
+                                                <div class="form-group">
+                                                    <div class="form-check">
+                                                      <input class="form-check-input" name="tags[]" value="{{ $tag->id }}" type="checkbox" id="tag{{ $tag->id }}" >
+                                                      <label class="form-check-label" for="tag{{ $tag->id }}">{{ $tag->name }}</label>
+                                                    </div>
+                                                  </div>
+                                                @endforeach
                                                 <div class="form-group">
                                                     <label for="description">Description</label>
                                                     <textarea name="description" id="description" rows="4" class="form-control" placeholder="Enter your description">

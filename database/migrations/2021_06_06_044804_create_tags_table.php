@@ -14,6 +14,7 @@ class CreateTagsTable extends Migration
     public function up()
     {
         Schema::dropIfExists('tags');
+        Schema::dropIfExists('post_tag');
 
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
@@ -22,6 +23,12 @@ class CreateTagsTable extends Migration
             $table->text('description')->nullable();
             $table->timestamps();
         });
+
+        Schema::create('post_tag', function (Blueprint $table) {
+            $table->string('post_id');
+            $table->string('tag_id');
+        });
+
     }
 
     /**
@@ -32,5 +39,6 @@ class CreateTagsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('tags');
+        Schema::dropIfExists('post_tag');
     }
 }

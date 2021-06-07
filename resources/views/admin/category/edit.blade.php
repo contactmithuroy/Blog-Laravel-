@@ -29,7 +29,7 @@
                           
                           <div class=" d-flex justify-content-between align-item-center ">
                                 <h3 class="card-title">Update Category {{ $category->name }}</h3>
-                                <a href="{{ route('category.create') }}" class="btn btn-primary"> Create Category</a>
+                                <a href="{{ route('category.index') }}" class="btn btn-primary"> Back To Category</a>
                           </div>
                         </div>
                         <!-- /.card-header -->

@@ -21,7 +21,7 @@
     
     <!-- Main content -->
     <div class="content">
-        <div class="container-fluid">
+        <div class="container-fluid">  
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
@@ -29,7 +29,7 @@
                           
                           <div class=" d-flex justify-content-between align-item-center ">
                                 <h3 class="card-title">Edit Post {{ $post->name }}</h3>
-                                <a href="{{ route('post.create') }}" class="btn btn-primary"> Create Post</a>
+                                <a href="{{ route('post.index') }}" class="btn btn-primary"> Back To Post</a>
                           </div>
                         </div>
                         <!-- /.card-header -->
@@ -73,6 +73,7 @@
                                                                 </div>
                                                                 </div>
                                                             </div>
+
                                                             <div class="col-md-4">
                                                                 <div style="max-width:100px; max-height:100px; over-flow:hidden; margin-left:auto">
                                                                     <img src="{{ asset($post->image) }}" class="img-fluid">
@@ -80,14 +81,27 @@
                                                             </div>
                                                         </div> 
                                                     </div>
- 
-                                                 <div class="form-group">
-                                                     <label for="description">Description</label>
-                                                     <textarea name="description" id="description" rows="4" class="form-control" placeholder="Enter your description">
- 
-                                                         {{ $post->description }}
-                                                     </textarea>
-                                                 </div>
+                                                    
+                                                    @foreach ($tags as $tag)
+                                                        <div class="form-group">
+                                                            <div class="form-check">
+                                                            <input class="form-check-input" name="tags[]" value="{{ $tag->id }}" type="checkbox" id="tag{{ $tag->id }}" 
+                                                            @foreach ($post->tags as $i)
+                                                                @if($tag->id == $i->id) checked @endif
+                                                            @endforeach
+                                                            >
+                                                            <label class="form-check-label" for="tag{{ $tag->id }}">{{ $tag->name }}</label>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+
+                                                    <div class="form-group">
+                                                        <label for="description">Description</label>
+                                                        <textarea name="description" id="description" rows="4" class="form-control" placeholder="Enter your description">
+    
+                                                            {{ $post->description }}
+                                                        </textarea>
+                                                    </div>
                                              </div>
                                              <!-- /.card-body -->
                              
