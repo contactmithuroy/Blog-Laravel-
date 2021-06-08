@@ -160,7 +160,7 @@ class PostController extends Controller
                 unlink(public_path($post->image)); // have exiting then delete this file
             }
             $post->delete();
-            Session::flash('Post has been delete');
+            Session::flash('success','Post has been delete');
         }
         return redirect()->back();
     }

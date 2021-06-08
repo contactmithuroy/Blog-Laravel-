@@ -4,11 +4,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 
 use App\Http\Controllers\FrontEndController;
+
 use App\Http\Controllers\CategoryController;
 
 use App\Http\Controllers\TagController;
 
 use App\Http\Controllers\PostController;
+
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,9 +54,13 @@ Route::resource('admin/post',PostController::class);
 // Route::delete('/admin/category/{category}',[CategoryController::class,'destroy'])->name('category.destroy');
 // Route::get('/admin/category/{category}/edit',[CategoryController::class,'edit'])->name('category.edit');
 
- 
+//  user controller
+Route::resource('admin/user',UserController::class);
 
-
+Route::get('admin/profile',[UserController::class,'profile'])->name('user.profile');
+Route::put('admin/profile-update/{id}',[UserController::class,'profileUpdate'])->name('profile.update');
+Route::get('admin/logout',[UserController::class,'logout'])->name('user.logout');
+$this->get('logout', 'Auth\LoginController@logout')->name('logout');
 
 
 

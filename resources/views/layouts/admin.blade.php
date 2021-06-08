@@ -223,7 +223,7 @@
 
           <li class="nav-item">
             <a href="{{ route('tag.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-tag"></i>
+              <i class="nav-icon fas fa-chart-pie"></i>
               <p>
                 Tags
               </p>
@@ -231,7 +231,25 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ route('logout') }}" onclick="event.prevenDefault(); document.getElementById('logout-form').submit();"  class="nav-link">
+            <a href="{{ route('user.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-users-cog"></i>
+              <p>
+                Users
+              </p>
+            </a>
+          </li>
+          <li class="nav-header">Your Account</li>
+          <li class="nav-item">
+            <a href="{{ route('user.profile') }}" class="nav-link">
+              <i class="nav-icon fas fa-user-circle"></i>
+              <p>
+                Your Profile
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('logout') }}"   class="nav-link">
               <i class="nav-icon fas fa-sign-out-alt"></i>
               <p>
                 Logout
@@ -279,7 +297,7 @@
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2021 <a href="#">Lavrodoc Production</a>.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->
