@@ -119,10 +119,14 @@ class UserController extends Controller
         
         $user->name  = $request->name;
         $user->email = $request->email;
-        $user->password = Hash::make($request->password);
         $user->slug = Str::slug($request->name,'-');
+        $user->password = Hash::make($request->password);
         $user->description = $request->description;
-
+        
+        // if($request->has('password')){
+        //     $user->password = Hash::make($request->password);
+        // }
+        
         if($request->hasFile('image')){
             $image = $request->image;
             $imageNewName = Time().".".$image->getClientOriginalExtension();

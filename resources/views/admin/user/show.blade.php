@@ -44,13 +44,13 @@
                                         </div>
                                         
                                         <div class="form-group">
-                                            <label for="password">New password <small style="color: rgb(2, 90, 14)" >(New password)</small> </label>
-                                            <input type="password" name="new_password"  class="form-control" id="password" placeholder="Enter password" required>
+                                            <label for="password">Password <small style="color: rgb(230, 15, 0)" >(If you change password)</small> </label>
+                                            <input type="password" name="password"  class="form-control" id="password" placeholder="Enter password" required>
                                         </div>
-                                        <div class="form-group">
+                                        {{-- <div class="form-group">
                                             <label for="password">Confirm password <small style="color: red" >(Confirm your password)</small> </label>
                                             <input type="password" name="confirm_password"  class="form-control" id="password" placeholder="Enter password" required>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                     {{-- second  column --}}
                                     <div class="col-md-6">
@@ -79,7 +79,7 @@
 
                                         <div class="form-group">
                                             <label for="description">Description</label>
-                                            <textarea name="description" id="description" rows="5" class="form-control" placeholder="Enter your description">
+                                            <textarea name="description" id="description" rows="4" class="form-control" placeholder="Enter your description">
 
                                                 {{ $user->description }}
                                             </textarea>
