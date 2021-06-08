@@ -59,8 +59,6 @@ Route::resource('admin/user',UserController::class);
 
 Route::get('admin/profile',[UserController::class,'profile'])->name('user.profile');
 Route::put('admin/profile-update/{id}',[UserController::class,'profileUpdate'])->name('profile.update');
-Route::get('admin/logout',[UserController::class,'logout'])->name('user.logout');
-$this->get('logout', 'Auth\LoginController@logout')->name('logout');
 
 
 
