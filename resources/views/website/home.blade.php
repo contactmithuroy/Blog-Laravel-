@@ -77,8 +77,8 @@
       </div>
         {{-- end row section --}}
 
-      <div class="row text-center pt-9 border-top justify-content-center  " style="color: red; ">
-        <span style="border: 2px solid blue ">{{ $recentPosts->links() }} </span>
+        <div class="row text-center pt-9 border-top justify-content-center  " style="color: red; ">
+          <span style="border-left: 2px solid blue; border-right: 2px solid blue ">{{ $posts->links() }} </span>
         {{-- <div class="col-md-12">
           <div class="custom-pagination">
             <span>1</span>
