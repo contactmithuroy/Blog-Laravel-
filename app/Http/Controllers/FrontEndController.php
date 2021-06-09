@@ -51,10 +51,15 @@ class FrontEndController extends Controller
         $post = Post::with('category','user')->where('slug',$slug)->first();
         $posts = Post::with('category','user')->inRandomOrder()->limit(3)->get();
 
+        $recentPosts = Post::orderBy('category_id','DESC')->inRandomOrder()->limit(4)->get();
+        $firstRecentPost  = $recentPosts->splice(0,1); //[1,2,3,4,5]
+        $recentMiddleTwoPost  = $recentPosts->splice(0,2);
+        $lastRecentPost  = $recentPosts->splice(0,1);
+
         $categories = Category::all();
         $tags = Tag::all();
         if($post){
-            return view('website.post',compact('post','posts','categories','tags'));
+            return view('website.post',compact('post','posts','categories','tags','firstRecentPost','recentMiddleTwoPost','lastRecentPost'));
         }else{
             return redirect('/');
         }
