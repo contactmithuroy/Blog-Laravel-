@@ -2,8 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+// use Faker\Factory as Faker;
+// use Illuminate\Support\Str;
 class SettingSeeder extends Seeder
 {
     /**
@@ -13,12 +16,9 @@ class SettingSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
-        foreach(range(1) as $index){
             DB::table('settings')->insert([
                 'name'=>'BaroMon',
-                'footer' => 'Copyright © 2021 Lavrodoc Production. All rights reserved.',
+                'copyright' => 'Copyright © 2021 Lavrodoc Production. All rights reserved.',
             ]);
-        }
     }
 }
