@@ -13,6 +13,7 @@ use App\Http\Controllers\PostController;
 
 use App\Http\Controllers\UserController;
 
+use App\Http\Controllers\SettingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,6 +46,23 @@ Route::resource('admin/tag',TagController::class);
 
 Route::resource('admin/post',PostController::class);
 
+//  user controller
+Route::resource('admin/user',UserController::class);
+
+Route::get('admin/profile',[UserController::class,'profile'])->name('user.profile');
+Route::put('admin/profile-update/{id}',[UserController::class,'profileUpdate'])->name('profile.update');
+// footer route
+Route::get('admin/setting',[SettingController::class,'edit'])->name('setting.edit');
+
+
+
+
+// -=================================================================
+
+// Route::get('/users', [UserController::class, 'index']);
+
+// Route::get('/category',[CategoryController::class,'index']);
+
 
 // Route::post('/admin/category',[CategoryController::class,'store'])->name('category.store');
 // Route::get('/admin/category',[CategoryController::class,'index'])->name('category.index');
@@ -53,21 +71,3 @@ Route::resource('admin/post',PostController::class);
 // Route::get('/admin/category/{category}',[CategoryController::class,'show'])->name('category.show');
 // Route::delete('/admin/category/{category}',[CategoryController::class,'destroy'])->name('category.destroy');
 // Route::get('/admin/category/{category}/edit',[CategoryController::class,'edit'])->name('category.edit');
-
-//  user controller
-Route::resource('admin/user',UserController::class);
-
-Route::get('admin/profile',[UserController::class,'profile'])->name('user.profile');
-Route::put('admin/profile-update/{id}',[UserController::class,'profileUpdate'])->name('profile.update');
-
-
-
-
-
-
-
-
-
-// Route::get('/users', [UserController::class, 'index']);
-
-// Route::get('/category',[CategoryController::class,'index']);

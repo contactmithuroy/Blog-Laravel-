@@ -16,14 +16,14 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
-        foreach(range(1,15) as $index){
-            DB::table('categories')->insert([
-                'name'=> $faker->name,
-                'slug'=>$faker->word,
-                'description' => $faker->paragraph,
-            ]);
-        }
+        // $faker = Faker::create();
+        // foreach(range(1,15) as $index){
+        //     DB::table('categories')->insert([
+        //         'name'=> $faker->name,
+        //         'slug'=>$faker->word,
+        //         'description' => $faker->paragraph,
+        //     ]);
+        // }
     }
 }
  
