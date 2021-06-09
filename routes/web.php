@@ -53,6 +53,7 @@ Route::get('admin/profile',[UserController::class,'profile'])->name('user.profil
 Route::put('admin/profile-update/{id}',[UserController::class,'profileUpdate'])->name('profile.update');
 // footer route
 Route::get('admin/setting',[SettingController::class,'edit'])->name('setting.edit');
+Route::post('admin/update',[SettingController::class,'update'])->name('setting.update');
 
 
 
