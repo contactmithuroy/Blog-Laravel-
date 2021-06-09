@@ -19,6 +19,11 @@
     <link rel="stylesheet" href="{{ asset('website') }}/css/aos.css">
 
     <link rel="stylesheet" href="{{ asset('website') }}/css/style.css">
+    <style>
+      .pagination{
+        margin-bottom: 0 !important;
+      }
+    </style>
   </head>
   <body>
   
@@ -92,7 +97,7 @@
           </div>
           <div class="col-md-4">
             
-
+       
             <div>
               <h3 class="footer-heading mb-4">Connect With Us</h3>
               <p>
