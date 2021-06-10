@@ -8,7 +8,11 @@ use App\Models\Category;
 use App\Models\Tag;
 use App\Models\User;
 use App\Models\Setting;
+use App\Models\Contact;
 use Illuminate\Support\Str;
+use Session;
+
+
 class FrontEndController extends Controller
 {
     public function home(){
@@ -68,5 +72,19 @@ class FrontEndController extends Controller
             return redirect('/');
         }
         
+    }
+
+    public function send_massage(Request $request){
+        $this->validate($request,[
+            'name'=> 'required|max:100',
+            'email'=>'required|email|max:100',
+            'subject'=>'max:200',
+            'massage'=>'required',
+        ]);
+
+        $contact = Contact::create($request->all());
+
+        Session::flash('massage_send','Your massage has been send successfully!');
+        return redirect()->back();
     }
 }

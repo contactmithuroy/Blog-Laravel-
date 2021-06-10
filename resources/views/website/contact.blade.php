@@ -28,29 +28,29 @@
             <div class="post-content-body">
               <div class="comment-form-wrap pt-5">
                 <h3 class="mb-5">Leave a comment</h3>
-                <form action="#" class="p-5 bg-light">
-
+                <form action="{{ route('post.contact') }}" method="POST" class="p-5 bg-light">
+                    @csrf
+                    @include('include.errors')
+                    @if(Session::has('massage_send'))
+                    <div class="alart alart-success">{{ Session::get('massage_send') }}</div>
+                    @endif
                   <div class="form-group ">
-                    <label for="name">First Name *</label>
-                    <input type="text" class="form-control" id="fname">
-                  </div>
-                  <div class="form-group">
-                    <label for="name">Last Name *</label>
-                    <input type="text" class="form-control" id="lname">
+                    <label for="name"> Name <small style="color: red" >*</small></label>
+                    <input type="text" name="name" class="form-control" id="name">
                   </div>
 
                   <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" class="form-control" id="email">
+                    <label for="email">Email <small style="color: red" >*</small></label>
+                    <input type="email" name="email" class="form-control" id="email">
                   </div>
                   <div class="form-group">
                     <label for="subject">Subject</label>
-                    <input type="text" class="form-control" id="subject">
+                    <input type="text" name="subject" class="form-control" id="subject">
                   </div>
 
                   <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+                    <label for="message">Message <small style="color: red" >*</small></label>
+                    <textarea name="massage" id="message" cols="30" rows="10" class="form-control"></textarea>
                   </div>
                   <div class="form-group">
                     <input type="submit" value="Submit" class="btn btn-primary">

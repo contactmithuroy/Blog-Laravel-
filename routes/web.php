@@ -13,7 +13,9 @@ use App\Http\Controllers\PostController;
 
 use App\Http\Controllers\UserController;
 
-use App\Http\Controllers\SettingController;
+use App\Http\Controllers\SettingController; 
+
+use App\Http\Controllers\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +32,7 @@ Route::get('/about',[FrontEndController::class,'about'])->name('website.about');
 Route::get('/category/{slug}',[FrontEndController::class,'category'])->name('website.category');
 Route::get('/contact',[FrontEndController::class,'contact'])->name('website.contact');
 Route::get('/post/{slug}',[FrontEndController::class,'post'])->name('website.post');
+Route::post('/contact',[FrontEndController::class,'send_massage'])->name('post.contact');
 
 // Admin panel Route
 Route::group(['prefix'=> 'admin','middleware'=>['auth']],function(){
