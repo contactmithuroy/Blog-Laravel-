@@ -88,6 +88,30 @@
                                                            </div>
                                                     </div>
 
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="copyright">Copyright</label>
+                                                            <input type="text" name="copyright" class="form-control" id="copyright" placeholder="Enter copyright" value="{{ $setting->copyright }}">
+                                                       </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="contact">Contact Number</label>
+                                                            <input type="number" name="contact" class="form-control" id="contact" placeholder="Enter contact number url" value="{{ $setting->contact }}">
+                                                       </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="address">Location</label>
+                                                            <input type="text" name="address" class="form-control" id="address" placeholder="Enter address" value="{{ $setting->address }}">
+                                                       </div>
+                                                    </div>
+
+
+                                                
+
 
                                                 </div>
                                                  {{-- site logo --}}

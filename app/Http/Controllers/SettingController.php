@@ -25,6 +25,7 @@ class SettingController extends Controller
         $this->validate($request,[
             'name'=>'required',
             'copyright'=>'required',
+            'number'=>'min:8|max:11'
         ]);
 
         $setting = Setting::first();

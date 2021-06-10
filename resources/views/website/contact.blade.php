@@ -2,15 +2,15 @@
 
 @section('content')
     
-    <div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('{{ asset('website') }}/images/img_2.jpg');">
+    <div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('{{ asset('website') }}/images/img_2.jpg'); max-height:450px">
       <div class="container">
         <div class="row same-height justify-content-center">
           <div class="col-md-12 col-lg-10">
             <div class="post-entry text-center">
-              <span class="post-category text-white bg-success mb-3">Nature</span>
+              <span class="post-category text-white bg-success mb-3">Are You Want To</span>
               <h2 class="mb-4"><a href="#">Contact Us</a></h2>
               <div class="post-meta align-items-center text-center">
-                <span class="d-inline-block mt-1">By Carrol Atkinson and Hoverso contuct with us we will provide you our best product</span>
+                <span class="d-inline-block mt-1">By </span>
               </div>
             </div>
           </div>
@@ -77,13 +77,13 @@
             <div class="sidebar-box">
               <div class="bio text-left">
                <h5>Address</h5>
-               <span>H43, R2, Section 12, Mirpur, Dhaka</span>
+               <span>{{ $setting->address }}</span>
 
                <h5>Phone</h5>
-               <span>177688996</span>
+               <span>{{ $setting->contact }}</span>
 
                <h5>Email Address</h5>
-               <span>ethan@gmail.com</span>
+               <span>{{ $setting->email }}</span>
               </div>
             </div>
             <!-- END sidebar-box -->  
