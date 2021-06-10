@@ -2,13 +2,13 @@
 
 @section('content')
     
-<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('{{ asset('website') }}/images/img_2.jpg');">
+<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('{{ asset('website') }}/images/img_2.jpg'); max-height:450px ">
   <div class="container">
     <div class="row same-height justify-content-center">
       <div class="col-md-12 col-lg-10">
         <div class="post-entry text-center">
-          <span class="post-category text-white bg-success mb-3">Nature</span>
-          <h2 class="mb-4"><a href="#">Contact Us</a></h2>
+          <span class="post-category text-white bg-success mb-3">Let's Talk to!</span>
+          <h2 class="mb-4"><a href="#">About Us</a></h2>
           <div class="post-meta align-items-center text-center">
             <span class="d-inline-block mt-1">By Carrol Atkinson and Hoverso contuct with us we will provide you our best product</span>
           </div>
@@ -22,45 +22,27 @@
     <section class="custom-site-section py-lg">
       <div class="container">
         
-        <div class="row blog-entries element-animate">
+        <div class="row blog-entries element-animate mt-10">
 
-          <div class="col-md-12 col-lg-8 main-content">
+          <div class="col-md-12 col-lg-6 main-content">
             
             <div class="post-content-body">
-              <h3>We Love To Explore</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium nam quas inventore, ut iure iste modi eos adipisci ad ea itaque labore earum autem nobis et numquam, minima eius. Nam eius, non unde ut aut sunt eveniet rerum repellendus porro.</p>
-            <p>Sint ab voluptates itaque, ipsum porro qui obcaecati cumque quas sit vel. Voluptatum provident id quis quo. Eveniet maiores perferendis officia veniam est laborum, expedita fuga doloribus natus repellendus dolorem ab similique sint eius cupiditate necessitatibus, magni nesciunt ex eos.</p>
-            <p>Quis eius aspernatur, eaque culpa cumque reiciendis, nobis at earum assumenda similique ut? Aperiam vel aut, ex exercitationem eos consequuntur eaque culpa totam, deserunt, aspernatur quae eveniet hic provident ullam tempora error repudiandae sapiente illum rerum itaque voluptatem. Commodi, sequi.</p>
+              <h3>{{ $user->name }}</h3>
+              <p>{{ $user->description }}</p>
             </div>
           </div>
 
           <!-- END main-content -->
 
-          <div class="col-md-12 col-lg-4 sidebar">
-            <div class="sidebar-box search-form-wrap">
-              <form action="#" class="search-form">
-                <div class="form-group">
-                  <span class="icon fa fa-search"></span>
-                  <input type="text" class="form-control" id="s" placeholder="Type a keyword and hit enter">
-                </div>
-              </form>
-            </div>
+          <div class="col-md-12 col-lg-5 sidebar">
             <!-- END sidebar-box -->
             <div class="sidebar-box">
-              <div class="row mb-5 mt-5">
-                <div class="col-md-12 mb-4">
-                  <img src="{{ asset('website') }}/images/img_1.jpg" alt="Image placeholder" class="img-fluid rounded">
-                </div>
-                <div class="col-md-6 mb-4">
-                  <img src="{{ asset('website') }}/images/img_2.jpg" alt="Image placeholder" class="img-fluid rounded">
-                </div>
-                <div class="col-md-6 mb-4">
-                  <img src="{{ asset('website') }}/images/img_3.jpg" alt="Image placeholder" class="img-fluid rounded">
-                </div>
+              <div class="row mb-5 mt-5 d-flex flex-row justify-content-center ">
+                  <img src="@if($user->image){{ $user->image }}@else{{ asset('website/storage/users/avatar.png') }}@endif" alt="Image placeholder" class="img-fluid rounded  " style="width: 200px; height:200px;">
+                
               </div>
             </div>
             <!-- END sidebar-box -->  
-
           </div>
           <!-- END sidebar -->
 
@@ -69,7 +51,7 @@
     </section>
 
 
-    <section class="custom-site-section">
+    {{-- <section class="custom-site-section">
       <div class="container">
         <div class="row justify-content-center text-center">
           <div class="col-md-12">
@@ -139,8 +121,8 @@
         </div>
       </div> 
     </section>
-      
-    <section class="custom-site-section">
+       --}}
+    {{-- <section class="custom-site-section">
           <div class="col-md-12 justify-content-center">
             <div class="row justify-content-center">
               <div class="col-md-12 col-lg-4 ">
@@ -156,7 +138,7 @@
               
             </div>
           </div>
-    </section>
+    </section> --}}
 
     <section>
       <div class="custom-site-section bg-lightx justify-content-center">
