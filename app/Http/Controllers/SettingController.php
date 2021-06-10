@@ -9,6 +9,11 @@ use Session;
 
 class SettingController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function edit(Setting $setting){
         $setting = Setting::first();
         return view('admin.setting.edit',compact('setting'));
