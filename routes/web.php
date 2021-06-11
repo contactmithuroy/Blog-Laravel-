@@ -34,6 +34,10 @@ Route::get('/contact',[FrontEndController::class,'contact'])->name('website.cont
 Route::get('/post/{slug}',[FrontEndController::class,'post'])->name('website.post');
 Route::post('/contact',[FrontEndController::class,'send_massage'])->name('post.contact');
 
+
+
+
+
 // Admin panel Route
 Route::group(['prefix'=> 'admin','middleware'=>['auth']],function(){
     Route::get('/dashboard',function(){
@@ -57,7 +61,8 @@ Route::put('admin/profile-update/{id}',[UserController::class,'profileUpdate'])-
 // footer route
 Route::get('admin/setting',[SettingController::class,'edit'])->name('setting.edit');
 Route::post('admin/update',[SettingController::class,'update'])->name('setting.update');
-
+// contact
+Route::resource('admin/contact',ContactController::class);
 
 
 
