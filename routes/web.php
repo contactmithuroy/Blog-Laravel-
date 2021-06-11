@@ -30,6 +30,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/',[FrontEndController::class,'home'])->name('website.home');
 Route::get('/about',[FrontEndController::class,'about'])->name('website.about');
 Route::get('/category/{slug}',[FrontEndController::class,'category'])->name('website.category');
+Route::get('/tag/{slug}',[FrontEndController::class,'tag'])->name('website.tag');
 Route::get('/contact',[FrontEndController::class,'contact'])->name('website.contact');
 Route::get('/post/{slug}',[FrontEndController::class,'post'])->name('website.post');
 Route::post('/contact',[FrontEndController::class,'send_massage'])->name('post.contact');

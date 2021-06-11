@@ -31,11 +31,11 @@
             </div>
 
             <div class="pt-5">
-              <p>Categories:  <a href="#">{{ $post->category->name }}</a>  
+              <p>Categories:  <a href="{{ route('website.category',['slug'=>$post->category->slug]) }}">{{ $post->category->name }}</a>  
                 @if($post->tags()->count() > 0 )
                   Tags: 
                     @foreach ($post->tags as $tag)
-                      <a href="#">#{{ $tag->name }}</a>                      
+                      <a href="{{ route('website.tag',['slug'=>$tag->slug]) }}">#{{ $tag->name }}</a>                      
                     @endforeach
                 @endif
               </p>
@@ -216,7 +216,7 @@
               <h3 class="heading">Tags</h3>
               <ul class="tags">
                 @foreach ($tags as $item)
-                  <li><a href="#">{{ $item->name }}</a></li>
+                  <li><a href="{{ route('website.tag',['slug'=>$item->slug]) }}">{{ $item->name }}</a></li>
                 @endforeach
                
               </ul>
