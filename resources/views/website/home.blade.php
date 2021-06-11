@@ -68,7 +68,7 @@
                 {{-- <span>&nbsp;-&nbsp;{{ {{ date('d-m-Y', strtotime($recentPost->created_at))}} }}</span> --}}
               </div>
               
-                <p>{{ substr($recentPost->description, 0, 100) }}</p>
+                <p>{!! substr(strip_tags($recentPost->description), 0, 100) !!}</p>
                 <p><a href="{{ route('website.post',['slug'=>$recentPost->slug]) }}">Read More</a></p>
               </div>
             </div>
@@ -161,3 +161,4 @@
   </div>
   
 @endsection
+

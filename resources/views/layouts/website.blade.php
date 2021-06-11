@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Laravel Blog</title>
+    <title>Laravel Blog</title> 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{ asset('website') }}/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="{{ asset('website') }}/css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="{{ asset('website') }}/fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="{{ asset('website') }}/css/aos.css">
+    <link rel="stylesheet" href="{{ asset('website') }}/css/aos.css">    
 
     <link rel="stylesheet" href="{{ asset('website') }}/css/style.css">
     <style>
@@ -141,6 +141,8 @@
 
   <script src="{{ asset('website') }}/js/main.js"></script>
 
+  {{-- comment script --}}
+  @yield('comment')
   <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async="" src="../../gtag/js.js?id=UA-23581568-13"></script>
 <script>

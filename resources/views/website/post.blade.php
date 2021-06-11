@@ -2,7 +2,7 @@
 
 @section('content')
     
-    <div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('{{ $post->image }}');">
+    <div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('{{ $post->image }}'); max-height:600px; ">
       <div class="container">
         <div class="row same-height justify-content-center">
           <div class="col-md-12 col-lg-10">
@@ -43,7 +43,10 @@
 
 
             <div class="pt-5">
-              <h3 class="mb-5">6 Comments</h3>
+              {{-- <h4 class="mb-5" id="dsq-count-scr">Leve your comments</h4> --}}
+              <div id="disqus_thread"></div>
+
+{{-- 
               <ul class="comment-list">
                 <li class="comment">
                   <div class="vcard">
@@ -151,7 +154,7 @@
                   </div>
 
                 </form>
-              </div>
+              </div> --}}
             </div>
 
           </div>
@@ -302,3 +305,18 @@
 
 @endsection
   
+
+{{-- comment Innitial section --}}
+@section('comment')
+
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://laravel-blog-81qlkxfqg9.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<script id="dsq-count-scr" src="//laravel-blog-81qlkxfqg9.disqus.com/count.js" async></script>
+@endsection

@@ -78,7 +78,6 @@
               <div class="bio text-left">
                <h5>Address</h5>
                <span>{{ $setting->address }}</span>
-
                <h5>Phone</h5>
                <span>{{ $setting->contact }}</span>
 
