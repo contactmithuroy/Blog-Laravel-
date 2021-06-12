@@ -16,6 +16,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\SettingController; 
 
 use App\Http\Controllers\ContactController;
+
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,13 +43,12 @@ Route::post('/contact',[FrontEndController::class,'send_massage'])->name('post.c
 
 // Admin panel Route
 Route::group(['prefix'=> 'admin','middleware'=>['auth']],function(){
-    Route::get('/dashboard',function(){
+    Route::get('/admin/dashboard',function(){
         return view('admin.dashboard.index');
-    });
+    })->name('dashboard');
 
 
 });  
-   
 Route::resource("admin/category",CategoryController::class);
 
 Route::resource('admin/tag',TagController::class);
@@ -62,6 +63,8 @@ Route::put('admin/profile-update/{id}',[UserController::class,'profileUpdate'])-
 // footer route
 Route::get('admin/setting',[SettingController::class,'edit'])->name('setting.edit');
 Route::post('admin/update',[SettingController::class,'update'])->name('setting.update');
+Route::get('admin/dashboard',[DashboardController::class,'index'])->name('dashboard.index');
+
 // contact
 Route::resource('admin/contact',ContactController::class);
 

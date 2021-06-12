@@ -41,4 +41,5 @@ class SettingController extends Controller
         Session::flash('success','Post has been update successfully');
         return redirect()->back();
     }
+
 }

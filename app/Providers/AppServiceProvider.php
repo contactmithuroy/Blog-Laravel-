@@ -35,5 +35,6 @@ class AppServiceProvider extends ServiceProvider
 
         $setting = Setting::first(); // column is one in setting table so use first() function
         view::share('setting',$setting);
+
     }
 }
